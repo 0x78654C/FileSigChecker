@@ -114,7 +114,7 @@ namespace FileType
 						else
 							outMessage = $@"-------------------------------------------------------------	
 File:          {filePath}
-Extenstion(s): {ext}
+Extension(s): {ext}
 Hex signature: {hex}
 Description:   {description}
 -------------------------------------------------------------";
