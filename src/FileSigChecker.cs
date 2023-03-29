@@ -108,7 +108,8 @@ namespace FileType
                         if (extOnly)
                             outMessage = ext;
                         else
-                            outMessage = $@"-------------------------------------------------------------	
+                            outMessage = $@"
+-------------------------------------------------------------	
 File:          {filePath}
 Extension(s): {ext}
 Hex signature: {hex}
