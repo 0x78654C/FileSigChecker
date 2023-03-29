@@ -15,13 +15,13 @@ namespace FileType
     class FileTypeChecker
     {
         private static string _binaryName = Assembly.GetExecutingAssembly().Location;
-        private static string _extFileName = Path.GetDirectoryName(_binaryName) + @"\ext_list.txt";
+        private static string _currentDirectory = Path.GetDirectoryName(_binaryName);
+        private static string _extFileName = _currentDirectory + @"\ext_list.txt";
         private static string _helpMessage { get; set; }
 
         // Main method.
         static void Main(string[] args)
         {
-        	Console.WriteLine(_extFileName);
             _helpMessage = @" Usage of file extension tool:
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
@@ -46,12 +46,22 @@ namespace FileType
             {
                 // Ignore.
             }
-
+            
             if (fileParam.Contains("-h"))
             {
                 Console.WriteLine(_helpMessage);
                 return;
             }
+            
+			fileParam = SanitizePath(fileParam, _currentDirectory);
+			
+			if(!File.Exists(fileParam))
+			{
+			    ColorConsoleWriteLine(ConsoleColor.Red,
+                    $"Error: File '{fileParam}' does not exist!");
+                return;
+			}
+			
 
             switch (extOnly)
             {
@@ -67,6 +77,13 @@ namespace FileType
             }
         }
 
+        /// <summary>
+        /// Sanitize path if includes current directory. 
+        /// </summary>
+        /// <param name="path">File path.</param>
+        /// <param name="currentDir">Terminal current direcotory.</param>
+        /// <returns>string</returns>
+        public static string SanitizePath(string path, string currentDir) => path.Contains(":") && path.Contains(@"\") ? path : $@"{currentDir}\{path}";
 
         /// <summary>
         /// Check if a file exist.
