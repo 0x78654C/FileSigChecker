@@ -2,23 +2,30 @@
  * Author: x_Coding
  * Description: File signature checker.
  */
-
+ 
+using System;
+using System.IO;
+using System.Linq;
 using System.Text;
+using System.Reflection;
+
 
 namespace FileType
 {
     class FileTypeChecker
     {
-        private const string _extFileName = @"ext_list.txt";
+        private static string _binaryName = Assembly.GetExecutingAssembly().Location;
+        private static string _extFileName = Path.GetDirectoryName(_binaryName) + @"\ext_list.txt";
         private static string _helpMessage { get; set; }
 
         // Main method.
         static void Main(string[] args)
         {
-            _helpMessage = @" sage of file extension tool:
- 	file_sig.exe <file_path>      : Display file path, extension, hex signature, and signature description.
- 	file_sig.exe <file_path> -ext : Display extension only.
- 	file_sig.exe -h               : Display this help message.";
+        	Console.WriteLine(_extFileName);
+            _helpMessage = @" Usage of file extension tool:
+ 	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
+ 	FileSigChecker.exe <file_path> -ext : Display extension only.
+ 	FileSigChecker.exe -h               : Display this help message.";
 
             if (!CheckExtFile(_extFileName))
             {
@@ -100,7 +107,13 @@ namespace FileType
                 if (!string.IsNullOrEmpty(line))
                 {
                     var hex = line.Split('|')[0];
-                    if (hexFile.Contains(hex))
+                    bool check = false;
+                    if(hex.Length < 4) // In case hex signature is 1 byte.
+                    	check  = hexFile.StartsWith(hex);
+                    else
+                    	check  = hexFile.Contains(hex);
+                    	
+                    if (check)
                     {
                         var ext = line.Split('|')[1];
                         var description = line.Split('|')[2];
