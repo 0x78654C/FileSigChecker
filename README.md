@@ -29,12 +29,14 @@ FF Fx|MP3|MPEG audio file frame synch pattern
 66 74 79 70 69 73 6F 6D|MP4|MPEG-4 video file
 89 50 4E 47 0D 0A 1A 0A|PNG|Portable Network Graphics file
  ```
+ A list of file signatures can be found here: https://en.wikipedia.org/wiki/List_of_file_signatures
+ 
 # Commands
 
 ```
-file_sig.exe <file_path>      : Display file path, extension, hex signature, and signature description.
-file_sig.exe <file_path> -ext : Display extension only.
-file_sig.exe -h               : Display this help message.
+FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
+FileSigChecker.exe <file_path> -ext : Display extension only.
+FileSigChecker.exe -h               : Display this help message.
 ```
  
 # Sample output
