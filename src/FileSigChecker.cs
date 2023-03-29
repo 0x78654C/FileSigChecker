@@ -7,16 +7,13 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 
 
 namespace FileType
 {
     class FileTypeChecker
     {
-        private static string _binaryName = Assembly.GetExecutingAssembly().Location;
-        private static string _currentDirectory = Path.GetDirectoryName(_binaryName);
-        private static string _extFileName = _currentDirectory + @"\ext_list.txt";
+        private const string _extFileName = "ext_list.txt";
         private static string _helpMessage { get; set; }
 
         // Main method.
@@ -26,7 +23,7 @@ namespace FileType
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.";
-
+			
             if (!CheckExtFile(_extFileName))
             {
                 ColorConsoleWriteLine(ConsoleColor.Red,
@@ -53,8 +50,6 @@ namespace FileType
                 return;
             }
             
-			fileParam = SanitizePath(fileParam, _currentDirectory);
-			
 			if(!File.Exists(fileParam))
 			{
 			    ColorConsoleWriteLine(ConsoleColor.Red,
@@ -76,14 +71,6 @@ namespace FileType
                     return;
             }
         }
-
-        /// <summary>
-        /// Sanitize path if includes current directory. 
-        /// </summary>
-        /// <param name="path">File path.</param>
-        /// <param name="currentDir">Terminal current direcotory.</param>
-        /// <returns>string</returns>
-        public static string SanitizePath(string path, string currentDir) => path.Contains(":") && path.Contains(@"\") ? path : $@"{currentDir}\{path}";
 
         /// <summary>
         /// Check if a file exist.
