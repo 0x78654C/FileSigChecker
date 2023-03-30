@@ -22,7 +22,11 @@ namespace FileType
             _helpMessage = @" Usage of file extension tool:
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
- 	FileSigChecker.exe -h               : Display this help message.";
+ 	FileSigChecker.exe -h               : Display this help message.
+ 	
+Version: 1.0.0
+Author: x_Coding (xcoding.dev@gmail.com)
+ 	";
 			
             if (!CheckExtFile(_extFileName))
             {
