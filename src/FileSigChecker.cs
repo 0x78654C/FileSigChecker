@@ -104,6 +104,7 @@ namespace FileType
         /// <returns>void</returns>
         private static void CheckFileSignature(string extFileName, string filePath, bool extOnly)
         {
+        	string outMessage = "Unknown signature.";
             var extLines = File.ReadAllLines(extFileName);
             string hexFile = HexDump.GetHex(filePath);
             foreach (var line in extLines)
@@ -121,22 +122,22 @@ namespace FileType
                     {
                         var ext = line.Split('|')[1];
                         var description = line.Split('|')[2];
-                        string outMessage;
+                        
                         if (extOnly)
                             outMessage = ext;
                         else
                             outMessage = $@"
 -------------------------------------------------------------	
 File:          {filePath}
-Extension(s): {ext}
+Extension(s):  {ext}
 Hex signature: {hex}
 Description:   {description}
 -------------------------------------------------------------";
-                        Console.WriteLine(outMessage);
                         break;
                     }
                 }
             }
+            Console.WriteLine(outMessage);
         }
     }
 
