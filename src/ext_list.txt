@@ -87,7 +87,7 @@
 41 46 46|aff|Advanced Forensics Format
 41 47 44 33|fh8|FreeHand�8 document
 41 52 43|arc|Capcom�MT Framework�game data archives
-41 54 26 54 46 4F 52 4D ?? ?? ?? ?? 44 4A 56|djvu, djv|DjVu�document
+44 4A 56|djvu, djv|DjVu�document
 42 41 43 4B 4D 49 4B 45 44 49 53 4B|bac|AmiBack�Amiga�Backup�data file
 42 4C 45 4E 44 45 52|blend|Blender File Format
 42 4D|bmp, dib|BMP�file, a�bitmap�format used mostly in the�Windows�world
@@ -167,21 +167,20 @@
 50 75 54 54 59 2D 55 73 65 72 2D 4B 65 79 2D 46 69 6C 65 2D 32 3A|ppk|PuTTY�private key file version 2
 50 75 54 54 59 2D 55 73 65 72 2D 4B 65 79 2D 46 69 6C 65 2D 33 3A|ppk|PuTTY�private key file version 3
 51 46 49|qcow|qcow�file format
-52 49 46 46|webp|Google WebP image file, where�??�??�??�?? is the file size. More information on�WebP File Header
-52 49 46 46 ?? ?? ?? ?? 41 43 4F 4E|ani|Animated cursor
-52 49 46 46 ?? ?? ?? ?? 41 56 49 20|avi|Audio Video Interleave�video format
-52 49 46 46 ?? ?? ?? ?? 43 44 44 41|cda|.cda file
-52 49 46 46 ?? ?? ?? ?? 51 4C 43 4D|qcp|Qualcomm PureVoice�file format
-52 49 46 46 ?? ?? ?? ?? 57 41 56 45|wav|Waveform Audio File Format
-52 49 46 58  ?? ?? ?? ?? 46 47 44 4D|dcr|Adobe Shockwave
-52 49 46 58 ?? ?? ?? ?? 4D 56 39 33|dir, dxr, drx|Macromedia Director�file format
+57 45 42 50|webp|Google WebP image file, where�??�??�??�?? is the file size. More information on�WebP File Header
+41 43 4F 4E|ani|Animated cursor
+41 56 49 20|avi|Audio Video Interleave�video format
+43 44 44 41|cda|.cda file
+51 4C 43 4D|qcp|Qualcomm PureVoice�file format
+57 41 56 45|wav|Waveform Audio File Format
+46 47 44 4D|dcr|Adobe Shockwave
+4D 56 39 33|dir, dxr, drx|Macromedia Director�file format
 52 4b 4d 43 32 31 30|No extension|Vormetric Encryption DPM Version 2.1 Header
 52 4E 43 01|No extension|Compressed file using�Rob Northen Compression�(version 1 and 2) algorithm
 52 4E 43 02|No extension|Compressed file using�Rob Northen Compression�(version 1 and 2) algorithm
 52 53 56 4B 44 41 54 41|rs|QuickZip rs compressed archive
 52 61 72 21 1A 07 00|rar|Roshal ARchive�compressed archive v1.50 onwards
 52 61 72 21 1A 07 01 00|rar|Roshal ARchive�compressed archive v5.00 onwards
-52 65 63 65 69 76 65 64 3A|eml|Email Message var5
 53 44 50 58|dpx|SMPTE�DPX image
 53 45 51 36|rc|RCFile�columnar file format
 53 49 4D 50 4C 45 20 20 3D 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 54|fits|Flexible Image Transport System (FITS)
@@ -193,8 +192,8 @@
 54 44 45 46|TDEF|Telegram Desktop Encrypted File
 54 44 46 24|TDF$|Telegram Desktop File
 55 55 AA AA|pcv|PhotoCap Vector
-58 46 49 52 ?? ?? ?? ?? 33 39 56 4D|dir, dxr, drx|
-58 46 49 52 ?? ?? ?? ?? 4D 44 47 46|No extension|
+33 39 56 4D|dir, dxr, drx|
+4D 44 47 46|No extension|
 58 50 44 53|dpx|SMPTE�DPX image
 5A 4D|exe|DOS ZM executable�and its descendants (rare)
 5A 4F 4F|zoo|Zoo (file format)
