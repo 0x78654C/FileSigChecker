@@ -117,10 +117,7 @@ Author: x_Coding (xcoding.dev@gmail.com)
                 {
                     var hex = line.Split('|')[0];
                     bool check = false;
-                    if(hex.Length < 4) // In case hex signature is 1 byte.
-                    	check  = hexFile.StartsWith(hex);
-                    else
-                    	check  = hexFile.Contains(hex);
+					check  = hexFile.Contains(hex); 
                     	
                     if (check)
                     {
