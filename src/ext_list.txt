@@ -1,6 +1,3 @@
-00|PIC, PIF, SEA,YTR|IBM Storyboard bitmap file
-47|ts, tsv, tsa, mpg, mpeg|MPEG Transport Stream (MPEG-2 Part 1)
-00 00 00 00 00 00 00 00|PDB|PalmPilot�Database/Document File
 00 00 00 0C 4A 58 4C 20 0D 0A 87 0A|jxl|Image encoded in the�JPEG XL�format
 00 00 00 0C 6A 50 20 20 0D 0A 87 0A|jp2, j2k, jpf, jpm, jpg2|JPEG 2000�format
 00 00 00 3C 00 00 00 3F 00 00 00 78 00 00 00 6D 00 00 00 6C 00 00 00 20|xml|eXtensible Markup Language
@@ -270,3 +267,4 @@ FF F3|mp3|MPEG-1 Layer 3�file without an�ID3�tag or with an�ID3v1 tag (w
 FF FB|mp3|MPEG-1 Layer 3�file without an�ID3�tag or with an�ID3v1 tag (which is appended at the end of the file)
 FF FE|txt, others|UTF-16LE�byte order mark, commonly seen in text files.
 FF FE 00 00|txt, others|UTF-32LE�byte order mark for text
+64 38 3A 61 6E 6E 6F 75|torrent|Torrent files.
