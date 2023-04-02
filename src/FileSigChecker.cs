@@ -13,13 +13,16 @@ namespace FileType
 {
     class FileTypeChecker
     {
-        private const string _extFileName = "ext_list.txt";
-        private static string _helpMessage { get; set; }
-
+        private const string s_extFileName = "ext_list.txt";
+        private static string s_helpMessage { get; set; }
+        private static bool s_isExtFound= false;
+        private static bool s_isIterated= false;
+        
+        
         // Main method.
         static void Main(string[] args)
         {
-            _helpMessage = @" Usage of file extension tool:
+            s_helpMessage = @" Usage of file extension tool:
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.
@@ -28,7 +31,7 @@ Version: 1.0.1
 Author: x_Coding (xcoding.dev@gmail.com)
  	";
 			
-            if (!CheckExtFile(_extFileName))
+            if (!CheckExtFile(s_extFileName))
             {
                 ColorConsoleWriteLine(ConsoleColor.Red,
                     "Error: File ext_list.txt is not present with file type signature. File must be located with the FileSigChecker executable!");
@@ -50,7 +53,7 @@ Author: x_Coding (xcoding.dev@gmail.com)
             
             if (fileParam.Contains("-h"))
             {
-                Console.WriteLine(_helpMessage);
+                Console.WriteLine(s_helpMessage);
                 return;
             }
             
@@ -65,13 +68,13 @@ Author: x_Coding (xcoding.dev@gmail.com)
             switch (extOnly)
             {
                 case "-ext":
-                    CheckFileSignature(_extFileName, fileParam, true);
+                    CheckFileSignature(s_extFileName, fileParam, true);
                     return;
                 case "":
-                    CheckFileSignature(_extFileName, fileParam, false);
+                    CheckFileSignature(s_extFileName, fileParam, false);
                     return;
                 default:
-                    CheckFileSignature(_extFileName, fileParam, false);
+                    CheckFileSignature(s_extFileName, fileParam, false);
                     return;
             }
         }
@@ -108,36 +111,50 @@ Author: x_Coding (xcoding.dev@gmail.com)
         /// <returns>void</returns>
         private static void CheckFileSignature(string extFileName, string filePath, bool extOnly)
         {
+        
         	string outMessage = "Unknown signature.";
             var extLines = File.ReadAllLines(extFileName);
             string hexFile = HexDump.GetHex(filePath);
+            var fileInfo = new FileInfo(filePath);
+            var nameExt = fileInfo.Extension.Replace(".","");
+           
             foreach (var line in extLines)
             {
-                if (!string.IsNullOrEmpty(line))
+                if (string.IsNullOrEmpty(line))
+                	continue;
+                	
+                var hex = line.Split('|')[0];
+                bool check = false;
+				check  = hexFile.Contains(hex); 
+				var ext = line.Split('|')[1];
+                var description = line.Split('|')[2];
+                bool checkExt = s_isIterated? true : ext.Contains(nameExt);
+                
+                if (check && checkExt)
                 {
-                    var hex = line.Split('|')[0];
-                    bool check = false;
-					check  = hexFile.Contains(hex); 
-                    if (check)
-                    {
-                        var ext = line.Split('|')[1];
-                        var description = line.Split('|')[2];
-                        
-                        if (extOnly)
-                            outMessage = ext;
-                        else
-                            outMessage = $@"
+                	s_isExtFound = true;
+                    if (extOnly)
+                        outMessage = ext;
+                    else
+                        outMessage = $@"
 -------------------------------------------------------------	
 File:          {filePath}
 Extension(s):  {ext}
 Hex signature: {hex}
 Description:   {description}
 -------------------------------------------------------------";
-                        break;
-                    }
+                    break;
                 }
             }
-            Console.WriteLine(outMessage);
+            
+            if(s_isExtFound)
+            	Console.WriteLine(outMessage);
+            
+            if(!s_isExtFound && !s_isIterated)
+            {
+            	s_isIterated= true;
+            	CheckFileSignature(extFileName, filePath, extOnly);
+            }
         }
     }
 
