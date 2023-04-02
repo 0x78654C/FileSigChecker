@@ -24,7 +24,7 @@ namespace FileType
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.
  	
-Version: 1.0.0
+Version: 1.0.1
 Author: x_Coding (xcoding.dev@gmail.com)
  	";
 			
@@ -118,7 +118,6 @@ Author: x_Coding (xcoding.dev@gmail.com)
                     var hex = line.Split('|')[0];
                     bool check = false;
 					check  = hexFile.Contains(hex); 
-                    	
                     if (check)
                     {
                         var ext = line.Split('|')[1];
