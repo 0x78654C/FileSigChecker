@@ -30,7 +30,6 @@ namespace FileType
 Version: 1.0.1
 Author: x_Coding (xcoding.dev@gmail.com)
  	";
-			
             if (!CheckExtFile(s_extFileName))
             {
                 ColorConsoleWriteLine(ConsoleColor.Red,
