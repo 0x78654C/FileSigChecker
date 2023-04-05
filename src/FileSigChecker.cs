@@ -22,7 +22,7 @@ namespace FileSigChecker
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.
  	
-Version: {Assembly.GetExecutingAssembly().GetName().Version.ToString()}
+Version: {Assembly.GetExecutingAssembly().GetName().Version?.ToString()}
 Author: x_Coding (xcoding.dev@gmail.com)
  	";
             if (!CheckExtFile(ExtFileName))
