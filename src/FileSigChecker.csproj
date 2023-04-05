@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <WarningLevel>0</WarningLevel>
     <Nullable>disable</Nullable>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>

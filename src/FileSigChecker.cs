@@ -3,6 +3,7 @@
  * Description: File signature checker.
  */
 
+using System.Reflection;
 using System.Text;
 
 namespace FileSigChecker
@@ -13,16 +14,15 @@ namespace FileSigChecker
         private static string s_helpMessage { get; set; }
         private static bool s_isIterated = false;
 
-
         // Main method.
         static void Main(string[] args)
         {
-            s_helpMessage = @" Usage of file extension tool:
+            s_helpMessage = @$" Usage of file extension tool:
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.
  	
-Version: 1.0.1
+Version: {Assembly.GetExecutingAssembly().GetName().Version.ToString()}
 Author: x_Coding (xcoding.dev@gmail.com)
  	";
             if (!CheckExtFile(ExtFileName))
