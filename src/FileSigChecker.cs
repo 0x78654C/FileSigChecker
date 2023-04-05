@@ -10,14 +10,14 @@ namespace FileSigChecker
     class FileTypeChecker
     {
         private const string ExtFileName = "ext_list.txt";
-        private static string HelpMessage { get; set; }
-        private static bool _isIterated = false;
+        private static string s_helpMessage { get; set; }
+        private static bool s_isIterated = false;
 
 
         // Main method.
         static void Main(string[] args)
         {
-            HelpMessage = @" Usage of file extension tool:
+            s_helpMessage = @" Usage of file extension tool:
  	FileSigChecker.exe <file_path>      : Display file path, extension, hex signature, and signature description.
  	FileSigChecker.exe <file_path> -ext : Display extension only.
  	FileSigChecker.exe -h               : Display this help message.
@@ -47,7 +47,7 @@ Author: x_Coding (xcoding.dev@gmail.com)
 
             if (fileParam.Contains("-h"))
             {
-                Console.WriteLine(HelpMessage);
+                Console.WriteLine(s_helpMessage);
                 return;
             }
 
@@ -117,7 +117,7 @@ Author: x_Coding (xcoding.dev@gmail.com)
                 var ext = line.Split('|')[1];
                 var description = line.Split('|')[2];
 
-                if (!check || (!_isIterated && !ext.Contains(nameExt))) continue;
+                if (!check || (!s_isIterated && !ext.Contains(nameExt))) continue;
                 isExtFound = true;
                 outMessage = extOnly
                     ? ext
@@ -133,9 +133,9 @@ Description:   {description}
 
             if (isExtFound)
                 Console.WriteLine(outMessage);
-            else if (!_isIterated)
+            else if (!s_isIterated)
             {
-                _isIterated = true;
+                s_isIterated = true;
                 CheckFileSignature(extFileName, filePath, extOnly);
             }
         }
@@ -172,7 +172,7 @@ Description:   {description}
             return outHex;
         }
 
-        private static char[] HexChars { get; } = "0123456789ABCDEF".ToCharArray();
+        private static char[] s_hexChars { get; } = "0123456789ABCDEF".ToCharArray();
 
         /// <summary>
         /// Hex dump
@@ -212,8 +212,8 @@ Description:   {description}
                     else
                     {
                         var b = bytes[i + j];
-                        line[hexColumn] = HexChars[(b >> 4) & 0xF];
-                        line[hexColumn + 1] = HexChars[b & 0xF];
+                        line[hexColumn] = s_hexChars[(b >> 4) & 0xF];
+                        line[hexColumn + 1] = s_hexChars[b & 0xF];
                     }
 
                     hexColumn += 3;
