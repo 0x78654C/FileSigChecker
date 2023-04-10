@@ -5,6 +5,9 @@
 
 using System.Reflection;
 using System.Text;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace FileSigChecker
 {
