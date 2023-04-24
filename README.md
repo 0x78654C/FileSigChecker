@@ -16,7 +16,7 @@ The file ext_list.txt must be created in the FileSigChecker binary location and 
 
 ![alt text](https://github.com/0x78654C/FileSigChecker/blob/main/Media/ext_list.png?raw=true)
 
-The data in line is must be split by ' | ' character.
+The data in line it must be splited by ' | ' character.
 Example of ext_list:
 
  ```
