@@ -16,7 +16,7 @@ The file ext_list.txt must be created in the FileSigChecker binary location and 
 
 ![alt text](https://github.com/0x78654C/FileSigChecker/blob/main/Media/ext_list.png?raw=true)
 
-The data in line is must be split by ' | ' character.
+The data in line it must be splited by ' | ' character.
 Example of ext_list:
 
  ```
@@ -48,3 +48,9 @@ Hex signature: 4D 5A
 Description:    Windows executable files.
 -------------------------------------------------------------
 ```
+
+# Sample video
+
+https://user-images.githubusercontent.com/13780514/230986340-20db66f2-86d7-49bf-9e16-8807d498d994.mp4
+
+
