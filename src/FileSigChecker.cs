@@ -43,10 +43,9 @@ Author: x_Coding (xcoding.dev@gmail.com)
 
             var extOnly = string.Empty;
             var fileParam = args[0];
+            
             if (args.Length > 1)
-            {
                 extOnly = args[1];
-            }
 
             if (fileParam.Contains("-h"))
             {
@@ -171,7 +170,6 @@ Description:   {description}
             {
                 outHex = e.Message;
             }
-
             return outHex;
         }
 
