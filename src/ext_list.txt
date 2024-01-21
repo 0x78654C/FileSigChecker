@@ -1,3 +1,4 @@
+7F 45 4C 46|elf|Executable and Linkable Format
 00 00 00 0C 4A 58 4C 20 0D 0A 87 0A|jxl|Image encoded in the JPEG XL format
 00 00 00 0C 6A 50 20 20 0D 0A 87 0A|jp2, j2k, jpf, jpm, jpg2|JPEG 2000 format
 00 00 00 3C 00 00 00 3F 00 00 00 78 00 00 00 6D 00 00 00 6C 00 00 00 20|xml|eXtensible Markup Language
